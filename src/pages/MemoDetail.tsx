@@ -35,7 +35,7 @@ export default function MemoDetail() {
 						<button onClick={handleRemove}><FaTrash /></button>
 					</div>
 				</div>
-				<p className="py-2 px-4 whitespace-pre">{content}</p>
+				<p className="py-2 px-4 select-text whitespace-pre">{content}</p>
 			</PageLayout>
 		);
 	}
