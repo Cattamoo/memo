@@ -1,13 +1,14 @@
 import React from 'react';
 import {useSelector} from "react-redux";
 import {RootState} from "../store/store";
+import PageLayout from "../components/layout/PageLayout";
 import MemoItem from "../components/MemoItem";
 
 export default function Home() {
 	const memos = useSelector((state: RootState) => state.memos);
 
 	return (
-		<div className="max-w-screen-xl w-full">
+		<PageLayout className="max-w-screen-xl">
 			{
 				Object.entries(memos).length === 0
 					? (
@@ -23,6 +24,6 @@ export default function Home() {
 						</ul>
 					)
 			}
-		</div>
+		</PageLayout>
 	);
 }

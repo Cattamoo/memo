@@ -2,6 +2,7 @@ import React from 'react';
 import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {RootState} from "../store/store";
+import PageLayout from "../components/layout/PageLayout";
 
 export default function MemoDetail() {
 	const {id} = useParams();
@@ -12,7 +13,7 @@ export default function MemoDetail() {
 	} else {
 		const { title, content, createdAt, updatedAt } = memos[id!];
 		return (
-			<div className="max-w-screen-md w-full">
+			<PageLayout>
 				<div className="text-center mt-4 pb-2 mb-2 shadow-[0_5px_10px_-3px_#d0d0cf]">
 					<h2 className="text-xl font-bold">{title}</h2>
 					<div className="text-xs">
@@ -21,7 +22,7 @@ export default function MemoDetail() {
 					</div>
 				</div>
 				<p className="py-2 px-4 whitespace-pre">{content}</p>
-			</div>
+			</PageLayout>
 		);
 	}
 }
