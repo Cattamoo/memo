@@ -1,13 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {v4 as uuid} from 'uuid';
-import moment, {Moment} from "moment";
+import moment from "moment";
 
 interface Memo {
 	id: string;
 	title: string;
 	content: string;
-	createdAt: Moment;
-	updatedAt: Moment;
+	createdAt: string;
+	updatedAt: string;
 }
 
 type MemoState = { [id: string]: Memo };
@@ -19,7 +19,7 @@ const memoSlice = createSlice({
 	initialState,
 	reducers: {
 		setMemos: (state: MemoState, { payload }) => {
-			return payload.data;
+			return payload;
 		},
 		createMemo: (state: MemoState, { payload }) => {
 			const id = uuid();
@@ -29,8 +29,8 @@ const memoSlice = createSlice({
 					id,
 					title: payload.title,
 					content: payload.content,
-					createdAt: moment(),
-					updatedAt: moment(),
+					createdAt: moment().format('YYYY-MM-DD'),
+					updatedAt: moment().format('YYYY-MM-DD'),
 				}
 			};
 		},
@@ -42,7 +42,7 @@ const memoSlice = createSlice({
 					...state[id],
 					title: payload.title,
 					content: payload.content,
-					updatedAt: moment(),
+					updatedAt: moment().format('YYYY-MM-DD'),
 				}
 			};
 		},
