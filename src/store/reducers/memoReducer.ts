@@ -29,8 +29,8 @@ const memoSlice = createSlice({
 					id,
 					title: payload.title,
 					content: payload.content,
-					createdAt: moment().format('YYYY-MM-DD'),
-					updatedAt: moment().format('YYYY-MM-DD'),
+					createdAt: moment().format('YYYY-MM-DD HH:mm:ss'),
+					updatedAt: moment().format('YYYY-MM-DD HH:mm:ss'),
 				}
 			};
 		},
@@ -42,7 +42,7 @@ const memoSlice = createSlice({
 					...state[id],
 					title: payload.title,
 					content: payload.content,
-					updatedAt: moment().format('YYYY-MM-DD'),
+					updatedAt: moment().format('YYYY-MM-DD HH:mm:ss'),
 				}
 			};
 		},

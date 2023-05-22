@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import moment from "moment";
 
 type Props = {
 	id: string;
@@ -16,7 +17,7 @@ export default function MemoItem({ id, title, content, updatedAt }: Props) {
 					<h3 className="text-lg font-bold">{title}</h3>
 					<p className="text-sm">{content}</p>
 				</div>
-				<div>{updatedAt}</div>
+				<div>{moment(updatedAt).format('YYYY-MM-DD')}</div>
 			</Link>
 		</li>
 	);
