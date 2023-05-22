@@ -1,13 +1,9 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import moment from "moment";
+import {Memo} from "../types/memoTypes";
 
-type Props = {
-	id: string;
-	title: string;
-	content: string;
-	updatedAt: string;
-}
+type Props = Memo;
 
 export default function MemoItem({ id, title, content, updatedAt }: Props) {
 	return (

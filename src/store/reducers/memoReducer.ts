@@ -1,14 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {v4 as uuid} from 'uuid';
 import moment from "moment";
-
-interface Memo {
-	id: string;
-	title: string;
-	content: string;
-	createdAt: string;
-	updatedAt: string;
-}
+import {Memo} from "../../types/memoTypes";
 
 type MemoState = { [id: string]: Memo };
 
