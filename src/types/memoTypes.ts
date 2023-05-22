@@ -5,3 +5,5 @@ export interface Memo {
 	createdAt: string;
 	updatedAt: string;
 }
+
+export type MemoState = { [id: string]: Memo };

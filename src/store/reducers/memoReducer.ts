@@ -1,19 +1,15 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {v4 as uuid} from 'uuid';
 import moment from "moment";
-import {Memo} from "../../types/memoTypes";
+import {MemoState} from "../../types/memoTypes";
+import {loadMemo} from "../../utils/localStorageUtils";
 
-type MemoState = { [id: string]: Memo };
-
-const initialState: MemoState = {};
+const initialState: MemoState = loadMemo();
 
 const memoSlice = createSlice({
 	name: 'memos',
 	initialState,
 	reducers: {
-		setMemos: (state: MemoState, { payload }) => {
-			return payload;
-		},
 		createMemo: (state: MemoState, { payload }) => {
 			const id = uuid();
 			return {
@@ -47,5 +43,5 @@ const memoSlice = createSlice({
 	}
 });
 
-export const { setMemos, createMemo, updateMemo, removeMemo } = memoSlice.actions;
+export const { createMemo, updateMemo, removeMemo } = memoSlice.actions;
 export default memoSlice.reducer;
