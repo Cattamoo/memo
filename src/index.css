@@ -8,3 +8,7 @@ body {
   font-family: 'Gowun Dodum', sans-serif;
   user-select: none;
 }
+
+#root {
+  @apply flex flex-col items-center w-full;
+}
