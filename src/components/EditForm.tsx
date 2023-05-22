@@ -10,8 +10,8 @@ type Props = {
 export default function EditForm({ memo }: Props) {
 	const dispatch = useDispatch();
 	const { id, title, content } = memo || {};
-	const [titleText, setTitleText] = useState<string>();
-	const [contentText, setContentText] = useState<string>();
+	const [titleText, setTitleText] = useState<string>('');
+	const [contentText, setContentText] = useState<string>('');
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
