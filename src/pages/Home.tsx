@@ -1,7 +1,7 @@
 import React from 'react';
-import MemoItem from "../components/MemoItem";
 import {useSelector} from "react-redux";
 import {RootState} from "../store/store";
+import MemoItem from "../components/MemoItem";
 
 export default function Home() {
 	const memos = useSelector((state: RootState) => state.memos);

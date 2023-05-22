@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {Outlet} from "react-router-dom";
-import Header from "./components/ui/Header";
 import {useDispatch} from "react-redux";
 import {setMemos} from "./store/reducers/memoReducer";
+import Header from "./components/ui/Header";
 
 export default function App() {
 	const dispatch = useDispatch();
