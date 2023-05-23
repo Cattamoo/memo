@@ -14,6 +14,7 @@ export default function EditForm({ memo }: Props) {
 	const { id, title, content } = memo || {};
 	const [titleText, setTitleText] = useState<string>('');
 	const [contentText, setContentText] = useState<string>('');
+	const inputClass = 'p-2 outline-none border-l-2 duration-75 hover:border-zinc-300 focus:border-red-300';
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
@@ -34,7 +35,7 @@ export default function EditForm({ memo }: Props) {
 	return (
 		<form className="w-full flex flex-col gap-1" onSubmit={handleSubmit}>
 			<input
-				className="p-2 outline-none border-l-2 duration-75 focus:border-red-300 font-bold"
+				className={`${inputClass} font-bold`}
 				type="text"
 				name="title"
 				placeholder="제목"
@@ -42,13 +43,13 @@ export default function EditForm({ memo }: Props) {
 				onChange={({target}) => setTitleText(target.value)}
 			/>
 			<textarea
-				className="p-2 outline-none border-l-2 duration-75 focus:border-red-300 h-40 resize-none"
+				className={`${inputClass} h-40 resize-none`}
 				name="content"
 				placeholder="내용"
 				value={contentText}
 				onChange={({target}) => setContentText(target.value)}
 			/>
-			<button className="p-2 disabled:bg-zinc-50 disabled:text-zinc-300" disabled={titleText === '' || contentText === ''}>저장</button>
+			<button className="p-2 bg-red-50 duration-75 hover:bg-red-100 disabled:bg-zinc-50 disabled:text-zinc-300" disabled={titleText === '' || contentText === ''}>저장</button>
 		</form>
 	);
 }
