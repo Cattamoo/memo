@@ -18,12 +18,14 @@ export default function EditForm({ memo }: Props) {
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
-		if(id == null) {
-			dispatch(createMemo({title: titleText, content: contentText}));
-			navigate('/');
-		} else {
-			dispatch(updateMemo({id, title: titleText, content: contentText}));
-			navigate(`/detail/${id}`);
+		if(window.confirm('저장하시겠습니까?')) {
+			if(id == null) {
+				dispatch(createMemo({title: titleText, content: contentText}));
+				navigate('/');
+			} else {
+				dispatch(updateMemo({id, title: titleText, content: contentText}));
+				navigate(`/detail/${id}`);
+			}
 		}
 	}
 

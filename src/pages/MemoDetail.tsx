@@ -14,8 +14,10 @@ export default function MemoDetail() {
 	const memos = useSelector((state: RootState) => state.memos);
 
 	const handleRemove = () => {
-		dispatch(removeMemo({ id }));
-		navigate('/');
+		if(window.confirm('삭제하시겠습니까?')) {
+			dispatch(removeMemo({id}));
+			navigate('/');
+		}
 	}
 	const makeDetailMemo = () => {
 		const { title, content, createdAt, updatedAt } = memos[id!];
