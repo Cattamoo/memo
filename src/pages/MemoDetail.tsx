@@ -3,6 +3,7 @@ import {Link, useNavigate, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../store/store";
 import {removeMemo} from "../store/reducers/memoReducer";
+import NotFoundMemo from "../components/NotFoundMemo";
 import PageLayout from "../components/layout/PageLayout";
 import {FaPenSquare, FaTrash} from "react-icons/fa";
 
@@ -16,14 +17,10 @@ export default function MemoDetail() {
 		dispatch(removeMemo({ id }));
 		navigate('/');
 	}
-
-	if(memos == null || memos[id!] == null) {
-		// TODO: id가 유효하지 않을 때 처리
-		return <></>
-	} else {
+	const makeDetailMemo = () => {
 		const { title, content, createdAt, updatedAt } = memos[id!];
 		return (
-			<PageLayout>
+			<>
 				<div className="relative text-center mt-4 pb-2 mb-2 shadow-[0_5px_10px_-3px_#d0d0cf]">
 					<h2 className="text-xl font-bold">{title}</h2>
 					<div className="text-xs">
@@ -36,7 +33,17 @@ export default function MemoDetail() {
 					</div>
 				</div>
 				<p className="py-2 px-4 select-text whitespace-pre">{content}</p>
-			</PageLayout>
-		);
+			</>
+		)
 	}
+
+	return (
+		<PageLayout>
+			{
+				memos == null || memos[id!] == null
+					? <NotFoundMemo />
+					: makeDetailMemo()
+			}
+		</PageLayout>
+	);
 }

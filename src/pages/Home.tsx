@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import {RootState} from "../store/store";
 import PageLayout from "../components/layout/PageLayout";
 import MemoItem from "../components/MemoItem";
+import EmptyMemo from "../components/EmptyMemo";
 
 export default function Home() {
 	const memos = useSelector((state: RootState) => state.memos);
@@ -12,9 +13,7 @@ export default function Home() {
 			{
 				Object.entries(memos).length === 0
 					? (
-						<div>
-							Empty!
-						</div>
+						<EmptyMemo />
 					)
 					: (
 						<ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
