@@ -1,5 +1,7 @@
 # MEMO 📝
 
+<img width="374" alt="image" src="https://github.com/Cattamoo/memo/assets/87294942/ca2db2ba-ff3d-4cff-ba52-d6e666c323e4">
+
 ## 목표 🏆
 
 - Redux를 사용한 메모 웹 어플리케이션 구현
